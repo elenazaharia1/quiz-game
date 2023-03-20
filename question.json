@@ -1,0 +1,18 @@
+[
+  {
+    "question": "What is the capital of Spain?",
+    "option1": "Barcelona",
+    "option2": "Madrid",
+    "option3": "Valencia",
+    "option4": "Seville",
+    "answer": 2
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "option1": "Leonardo da Vinci",
+    "option2": "Vincent van Gogh",
+    "option3": "Pablo Picasso",
+    "option4": "Salvador Dali",
+    "answer": 1
+  }
+]
