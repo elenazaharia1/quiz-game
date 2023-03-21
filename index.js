@@ -83,3 +83,19 @@ answerElements.forEach((option) => {
     }, 1000);
   });
 });
+
+function restartGame() {
+  currentPlayer = 0;
+  currentQuestion = 0;
+  scores = [0, 0];
+  isGameOver = false;
+  acceptingAnswers = false;
+  player1Score.textContent = "0";
+  player2Score.textContent = "0";
+  player2Panel.classList.remove("active");
+  player1Panel.classList.add("active");
+  answerOptions.classList.remove("hidden");
+  nextQuestionButton.textContent = "Next Question";
+
+  displayQuestion();
+}
