@@ -14,5 +14,125 @@
     "option3": "Pablo Picasso",
     "option4": "Salvador Dali",
     "answer": 1
+  },
+  {
+    "question": "What is the tallest mountain in the world?",
+    "option1": "Mount Everest",
+    "option2": "K2",
+    "option3": "Kilimanjaro",
+    "option4": "Denali",
+    "answer": 1
+  },
+  {
+    "question": "What is the smallest country in the world?",
+    "option1": "Monaco",
+    "option2": "Maldives",
+    "option3": "Vatican City",
+    "option4": "San Marino",
+    "answer": 3
+  },
+  {
+    "question": "What is the largest country in the world?",
+    "option1": "Russia",
+    "option2": "China",
+    "option3": "Canada",
+    "option4": "United States",
+    "answer": 1
+  },
+  {
+    "question": "What is the capital of Canada?",
+    "option1": "Toronto",
+    "option2": "Vancouver",
+    "option3": "Ottawa",
+    "option4": "Montreal",
+    "answer": 3
+  },
+  {
+    "question": "What is the largest ocean in the world?",
+    "option1": "Atlantic Ocean",
+    "option2": "Indian Ocean",
+    "option3": "Arctic Ocean",
+    "option4": "Pacific Ocean",
+    "answer": 4
+  },
+  {
+    "question": "What is the most spoken language in the world?",
+    "option1": "English",
+    "option2": "Mandarin",
+    "option3": "Spanish",
+    "option4": "Arabic",
+    "answer": 2
+  },
+  {
+    "question": "What is the largest desert in the world?",
+    "option1": "Sahara Desert",
+    "option2": "Arabian Desert",
+    "option3": "Gobi Desert",
+    "option4": "Antarctic Desert",
+    "answer": 1
+  },
+  {
+    "question": "What is the largest organ in the human body?",
+    "option1": "Liver",
+    "option2": "Brain",
+    "option3": "Heart",
+    "option4": "Skin",
+    "answer": 4
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "option1": "Leonardo da Vinci",
+    "option2": "Pablo Picasso",
+    "option3": "Vincent van Gogh",
+    "option4": "Rembrandt",
+    "answer": 1
+  },
+  {
+    "question": "What is the tallest mammal?",
+    "option1": "Elephant",
+    "option2": "Giraffe",
+    "option3": "Rhino",
+    "option4": "Hippopotamus",
+    "answer": 2
+  },
+  {
+    "question": "What is the largest planet in our solar system?",
+    "option1": "Earth",
+    "option2": "Jupiter",
+    "option3": "Mars",
+    "option4": "Venus",
+    "answer": 2
+  },
+  {
+    "question": "What is the smallest country in the world?",
+    "option1": "Vatican City",
+    "option2": "Monaco",
+    "option3": "San Marino",
+    "option4": "Liechtenstein",
+    "answer": 1
+  },
+  {
+    "question": "What is the chemical symbol for gold?",
+    "option1": "Ag",
+    "option2": "Au",
+    "option3": "Fe",
+    "option4": "Cu",
+    "answer": 2
+  },
+  {
+    "question": "Who wrote the Harry Potter series?",
+    "option1": "Stephen King",
+    "option2": "J.K. Rowling",
+    "option3": "Dan Brown",
+    "option4": "George R.R. Martin",
+    "answer": 2
+  },
+  {
+    "question": "What is the smallest bone in the human body?",
+    "option1": "Stapes",
+    "option2": "Femur",
+    "option3": "Tibia",
+    "option4": "Humerus",
+    "answer": 1
   }
 ]
