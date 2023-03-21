@@ -37,65 +37,68 @@ fetch("questions.json")
     console.error(" problem ", error);
   });
 
-// punem intrebarile si raspunsurile pe pagina
+// Display question and answer options
 function displayQuestion() {
-  //aduce intrebarile si pe punem pe pagina
-  const QuestionIndex = Math.floor(Math.random() * questions.length);
-  currentQuestion = questions[QuestionIndex];
-  // console.log(currentQuestion);
+  // Get a random question from the questions array
+  const questionIndex = Math.floor(Math.random() * questions.length);
+  currentQuestion = questions[questionIndex];
+  // Display the question
   questionElement.innerText = currentQuestion.question;
 
+  // Display the answer options
   answerElements.forEach((option) => {
     const number = option.dataset["number"];
     option.innerText = currentQuestion["option" + number];
   });
 
-  questions.splice(QuestionIndex, 1);
+  // Remove the question from the questions array
+  questions.splice(questionIndex, 1);
   acceptingAnswers = true;
 }
 
+// Check if the selected answer is correct or not
+function checkAnswer(selectedOption) {
+  acceptingAnswers = false;
+  const selectedAnswer = selectedOption.dataset["number"];
+  const classToApply =
+    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+  // If the answer is correct, add a point to the current player's score
+  if (classToApply === "correct") {
+    console.log("bun");
+    scores[currentPlayer]++;
+    document.getElementById(`score-${currentPlayer}`).textContent =
+      scores[currentPlayer];
+    console.log("point added");
+  } else {
+    // If the answer is incorrect, switch to the other player's turn
+    currentPlayer = currentPlayer === 0 ? 1 : 0;
+    document.querySelector("#player1-panel").classList.toggle("active");
+    document.querySelector("#player2-panel").classList.toggle("active");
+  }
+
+  // Display the selected answer as correct or incorrect
+  selectedOption.parentElement.classList.add(classToApply);
+  setTimeout(() => {
+    selectedOption.parentElement.classList.remove(classToApply);
+  }, 1000);
+}
+
+// Event listener for answer option buttons
 answerElements.forEach((option) => {
   option.addEventListener("click", (e) => {
     if (!acceptingAnswers) return;
-
-    acceptingAnswers = false;
-    const selectedOption = e.target;
-    const selectedAnswer = selectedOption.dataset["number"];
-    const classToApply =
-      selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
-    if (classToApply === "correct") {
-      console.log("bun");
-      scores[currentPlayer]++;
-      document.getElementById(`score-${currentPlayer}`).textContent =
-        scores[currentPlayer];
-      console.log("point added");
-    } else {
-      currentPlayer = currentPlayer === 0 ? 1 : 0;
-      document.querySelector("#player1-panel").classList.toggle("active");
-      document.querySelector("#player2-panel").classList.toggle("active");
-    }
-
-    selectedOption.parentElement.classList.add(classToApply);
-    setTimeout(() => {
-      selectedOption.parentElement.classList.remove(classToApply);
-      displayQuestion();
-    }, 1000);
+    checkAnswer(e.target);
   });
 });
 
-function restartGame() {
-  currentPlayer = 0;
-  currentQuestion = 0;
-  scores = [0, 0];
-  isGameOver = false;
-  acceptingAnswers = false;
-  player1Score.textContent = "0";
-  player2Score.textContent = "0";
-  player2Panel.classList.remove("active");
-  player1Panel.classList.add("active");
-  answerOptions.classList.remove("hidden");
-  nextQuestionButton.textContent = "Next Question";
-
-  displayQuestion();
-}
+// Event listener for Next Question button
+nextQuestionButton.addEventListener("click", () => {
+  if (questions.length === 0) {
+    // If there are no more questions left, end the game
+    console.log("Game Over");
+    isGameOver = true;
+  } else {
+    displayQuestion();
+  }
+});
