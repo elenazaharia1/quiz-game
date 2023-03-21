@@ -15,7 +15,9 @@ const nextQuestionButton = document.getElementById("next-question-btn");
 let currentPlayer = 0;
 let currentQuestion = 0;
 let scores = [0, 0];
+
 let acceptingAnswers = false;
+let isGameOver = false;
 let questions = [];
 
 // Fetch the trivia questions from a JSON file
@@ -64,6 +66,10 @@ answerElements.forEach((option) => {
 
     if (classToApply === "correct") {
       console.log("bun");
+      scores[currentPlayer]++;
+      document.getElementById(`score-${currentPlayer}`).textContent =
+        scores[currentPlayer];
+      console.log("point added");
     } else {
       currentPlayer = currentPlayer === 0 ? 1 : 0;
       document.querySelector("#player1-panel").classList.toggle("active");
