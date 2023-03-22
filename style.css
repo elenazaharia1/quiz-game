@@ -73,3 +73,13 @@
 .incorrect {
   background-color: #dc3545;
 }
+#reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}

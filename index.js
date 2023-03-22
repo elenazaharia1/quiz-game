@@ -10,6 +10,7 @@ const answerElements = Array.from(
   document.getElementsByClassName("answer-option")
 );
 const nextQuestionButton = document.getElementById("next-question-btn");
+const restartBtn = document.getElementById("reset-btn");
 
 // Define variables
 let currentPlayer = 0;
@@ -36,6 +37,11 @@ fetch("questions.json")
   .catch((error) => {
     console.error(" problem ", error);
   });
+function startGame() {
+  displayQuestion();
+
+  checkAnswer(selectedOption);
+}
 
 // Display question and answer options
 function displayQuestion() {
@@ -87,6 +93,7 @@ function checkAnswer(selectedOption) {
 }
 
 // Event listener for answer option buttons
+
 answerElements.forEach((option) => {
   option.addEventListener("click", (e) => {
     if (!acceptingAnswers) return;
@@ -99,8 +106,16 @@ nextQuestionButton.addEventListener("click", () => {
   if (questions.length === 0) {
     // If there are no more questions left, end the game
     console.log("Game Over");
+    nextQuestionButton.classList.add("hidden");
+    restartBtn.classList.remove("hidden");
+    questionContainer.classList.add("hidden");
+
     isGameOver = true;
   } else {
     displayQuestion();
   }
+});
+
+restartBtn.addEventListener("click", () => {
+  window.location.reload();
 });
