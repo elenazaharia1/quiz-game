@@ -1,10 +1,13 @@
 # Team:
 
-[Elena Zaharia]
-(https://github.com/elenazaharia1)
+<ul>
+<li>[Elena Zaharia]</li>
+<li>(https://github.com/elenazaharia1)</li>
 
-[Vaida Aurel Nicolaie]
-(https://github.com/vaidanicu)
+<li>[Vaida Aurel Nicolaie]</li>
+<li>(https://github.com/vaidanicu)</li>
 
-[Valentin Constantinescu]
-(https://github.com/Ipadios12)
+<li>[Valentin Constantinescu]</li>
+<li>(https://github.com/Ipadios12)</li>
+ 
+<ul>

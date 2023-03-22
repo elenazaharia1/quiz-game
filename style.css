@@ -1,3 +1,25 @@
+
+body{
+  background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  animation: back 30s linear;
+  animation-iteration-count: infinite;
+  overflow: hidden;
+}
+
+@keyframes back {
+  0%{
+    background-position: 0px 0px;
+  }
+50%{
+  background-position: -205px -100px;
+}
+  100%{
+    background-position: -339px -141px;
+  }
+  
+}
+
+
 #game-container {
   margin: auto;
   width: 600px;
@@ -58,11 +80,23 @@
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
+  transition: 300ms;
 }
-.active {
-  background-color: pink !important;
+#player1-panel {
+  background-image: url(img/descarga.jpeg);
+  background-position-y: 161px;
+  background-size: 93%;
+  background-position-x: 43%;
+}
+#player2-panel {
+  background-image: url(img/png-transparent-cartoon-boy-student-child-hand-photography.png);
+  background-size: 190px;
 }
 
+.vs {
+  text-shadow: 0px 0px 1px rgb(233, 35, 101), 0px 0px 2px rgb(87, 5, 5);
+  transform: scale(1.5, 1.5);
+}
 .hidden {
   display: none;
 }
@@ -94,3 +128,19 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+button {
+  text-shadow: 0px 0px 1px rgb(233, 35, 101), 0px 0px 2px rgb(87, 5, 5);
+  transform: scale(1, 1);
+}
+
+button:hover {
+  box-shadow: 0px 0px 8px rgb(8, 12, 43);
+  transition: all 300ms;
+}
+
+.answer-option:hover {
+  box-shadow: 0px 0px 8px rgb(156, 156, 158);
+  transition: 300ms;
+}
+
