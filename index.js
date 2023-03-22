@@ -98,30 +98,46 @@ function checkAnswer(selectedOption) {
   }, 1000);
 }
 
-// Event listener for answer option buttons
-
-answerElements.forEach((option) => {
-  option.addEventListener("click", (e) => {
-    if (!acceptingAnswers) return;
-    checkAnswer(e.target);
+function initEvent() {
+  answerElements.forEach((option) => {
+    option.addEventListener("click", (e) => {
+      if (!acceptingAnswers) return;
+      checkAnswer(e.target);
+    });
   });
-});
 
-// Event listener for Next Question button
-nextQuestionButton.addEventListener("click", () => {
-  if (questions.length === 0) {
-    // If there are no more questions left, end the game
-    console.log("Game Over");
-    nextQuestionButton.classList.add("hidden");
-    restartBtn.classList.remove("hidden");
-    questionContainer.classList.add("hidden");
+  // Event listener for Next Question button
+  nextQuestionButton.addEventListener("click", () => {
+    if (questions.length === 0) {
+      // If there are no more questions left, end the game
 
-    startGame();
-  } else {
-    displayQuestion();
-  }
-});
+      nextQuestionButton.classList.add("hidden");
+      restartBtn.classList.remove("hidden");
+      questionContainer.classList.add("hidden");
+      winner();
+      startGame();
+    } else {
+      displayQuestion();
+    }
+  });
 
-restartBtn.addEventListener("click", () => {
-  window.location.reload();
-});
+  restartBtn.addEventListener("click", () => {
+    window.location.reload();
+  });
+}
+
+// function winner() {
+//   console.log("Bun Venit");
+//   if (scores === sc) {
+//     console.log("reusit");
+//   } else if (player1Score > player2Score) {
+//     console.log("p1win");
+//   }
+// if (player1Score === player2Score) {
+//   console.log("egalitate");
+// } else if (player1Score > player2Score) {
+//   console.log("player1 won");
+// } else if (player1Score < player2Score) {
+//   console.log("player 2 won");
+// }
+// }
