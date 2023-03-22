@@ -11,12 +11,13 @@ const answerElements = Array.from(
 );
 const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
+const newGame = document.getElementById("StartGame-btn");
 
 // Define variables
 let currentPlayer = 0;
 let currentQuestion = 0;
 let scores = [0, 0];
-
+let selectedOption;
 let acceptingAnswers = false;
 let isGameOver = false;
 let questions = [];
@@ -31,16 +32,21 @@ fetch("questions.json")
   })
   .then((data) => {
     questions = data;
-    displayQuestion();
+    startGame();
     console.log(data);
   })
   .catch((error) => {
     console.error(" problem ", error);
   });
-function startGame() {
-  displayQuestion();
 
-  checkAnswer(selectedOption);
+function startGame() {
+  questionContainer.classList.add("hidden");
+  newGame.addEventListener("click", () => {
+    questionContainer.classList.remove("hidden");
+    newGame.classList.add("hidden");
+    nextQuestionButton.classList.remove("hidden");
+    displayQuestion();
+  });
 }
 
 // Display question and answer options
@@ -110,7 +116,7 @@ nextQuestionButton.addEventListener("click", () => {
     restartBtn.classList.remove("hidden");
     questionContainer.classList.add("hidden");
 
-    isGameOver = true;
+    startGame();
   } else {
     displayQuestion();
   }
