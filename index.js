@@ -13,7 +13,7 @@ const nextQuestionButton = document.getElementById("next-question-btn");
 
 // Define variables
 let currentPlayer = 0;
-let currentQuestion = 0;
+let DD = 0;
 let scores = [0, 0];
 
 let acceptingAnswers = false;
@@ -81,6 +81,8 @@ function checkAnswer(selectedOption) {
   selectedOption.parentElement.classList.add(classToApply);
   setTimeout(() => {
     selectedOption.parentElement.classList.remove(classToApply);
+    currentQuestion++;
+    displayQuestion(currentQuestion);
   }, 1000);
 }
 
