@@ -98,33 +98,31 @@ function checkAnswer(selectedOption) {
   }, 1000);
 }
 
-function initEvent() {
-  answerElements.forEach((option) => {
-    option.addEventListener("click", (e) => {
-      if (!acceptingAnswers) return;
-      checkAnswer(e.target);
-    });
+answerElements.forEach((option) => {
+  option.addEventListener("click", (e) => {
+    if (!acceptingAnswers) return;
+    checkAnswer(e.target);
   });
+});
 
-  // Event listener for Next Question button
-  nextQuestionButton.addEventListener("click", () => {
-    if (questions.length === 0) {
-      // If there are no more questions left, end the game
+// Event listener for Next Question button
+nextQuestionButton.addEventListener("click", () => {
+  if (questions.length === 0) {
+    // If there are no more questions left, end the game
 
-      nextQuestionButton.classList.add("hidden");
-      restartBtn.classList.remove("hidden");
-      questionContainer.classList.add("hidden");
-      winner();
-      startGame();
-    } else {
-      displayQuestion();
-    }
-  });
+    nextQuestionButton.classList.add("hidden");
+    restartBtn.classList.remove("hidden");
+    questionContainer.classList.add("hidden");
+    winner();
+    startGame();
+  } else {
+    displayQuestion();
+  }
+});
 
-  restartBtn.addEventListener("click", () => {
-    window.location.reload();
-  });
-}
+restartBtn.addEventListener("click", () => {
+  window.location.reload();
+});
 
 // function winner() {
 //   console.log("Bun Venit");
