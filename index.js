@@ -13,7 +13,7 @@ const nextQuestionButton = document.getElementById("next-question-btn");
 
 // Define variables
 let currentPlayer = 0;
-let DD = 0;
+let currentQuestion = 0;
 let scores = [0, 0];
 
 let acceptingAnswers = false;
