@@ -12,7 +12,10 @@ const answerElements = Array.from(
 const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
 const newGame = document.getElementById("StartGame-btn");
+const winnerText = document.getElementById("winnerText");
 
+var Wrong = new Audio("laser_falling-104772.mp3");
+var Corect = new Audio("happy-logoversion-3-13398.mp3");
 // Define variables
 let currentPlayer = 0;
 let currentQuestion = 0;
@@ -79,12 +82,14 @@ function checkAnswer(selectedOption) {
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
     console.log("bun");
+    Corect.play();
     scores[currentPlayer]++;
     document.getElementById(`score-${currentPlayer}`).textContent =
       scores[currentPlayer];
     console.log("point added");
   } else {
     // If the answer is incorrect, switch to the other player's turn
+    Wrong.play();
     currentPlayer = currentPlayer === 0 ? 1 : 0;
     document.querySelector("#player1-panel").classList.toggle("active");
     document.querySelector("#player2-panel").classList.toggle("active");
@@ -96,7 +101,7 @@ function checkAnswer(selectedOption) {
     selectedOption.parentElement.classList.remove(classToApply);
     currentQuestion++;
     displayQuestion(currentQuestion);
-  }, 1000);
+  }, 5000);
 }
 
 answerElements.forEach((option) => {
@@ -128,9 +133,12 @@ function winner() {
   currentPlayer[scores];
   if (scores[0] === scores[1]) {
     console.log("bun");
+    winnerText.innerText = "Remiza";
   } else if (scores[0] < scores[1]) {
     console.log("p2Win");
+    winnerText.innerText = "Player2 Win";
   } else {
     console.log("p1win");
+    winnerText.innerText = "Player1 Win";
   }
 }

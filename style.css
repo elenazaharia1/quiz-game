@@ -20,6 +20,10 @@ body {
 .active {
 }
 
+#winnerText {
+  font-size: 100px;
+}
+
 #game-container {
   margin: auto;
   width: 600px;
