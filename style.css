@@ -1,5 +1,4 @@
-
-body{
+body {
   background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
   animation: back 30s linear;
   animation-iteration-count: infinite;
@@ -7,18 +6,19 @@ body{
 }
 
 @keyframes back {
-  0%{
+  0% {
     background-position: 0px 0px;
   }
-50%{
-  background-position: -205px -100px;
-}
-  100%{
+  50% {
+    background-position: -205px -100px;
+  }
+  100% {
     background-position: -339px -141px;
   }
-  
 }
 
+.active {
+}
 
 #game-container {
   margin: auto;
@@ -143,4 +143,3 @@ button:hover {
   box-shadow: 0px 0px 8px rgb(156, 156, 158);
   transition: 300ms;
 }
-
