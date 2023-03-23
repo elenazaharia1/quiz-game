@@ -10,7 +10,3 @@
 
 https://elenazaharia1.github.io/quiz-game/
 
-# TODO
-
-- [x] create a function for winnerPlayers
-- [ ] add color for active player
