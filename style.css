@@ -155,23 +155,26 @@ button:hover {
   }
 
   #player1-panel {
-    margin-left: -178px;
+    margin-left: -195px;
   
+  }
+  #player2-panel {
+    margin-left: -10px;
   }
 
   .vs {
-    margin-left: -184px;
+    margin-left: -205px;
   }
 
   #question-container{
-    width: 360px;
+    width: 355px;
   }
 
   #StartGame-btn {
-    margin-left: -165px;
+    margin-left: -195px;
   }
    #next-question-btn {
 
-   margin-left: -165px;
+   margin-left: -200px;
   }
 }
