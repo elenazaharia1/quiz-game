@@ -147,3 +147,31 @@ button:hover {
   box-shadow: 0px 0px 8px rgb(156, 156, 158);
   transition: 300ms;
 }
+
+@media screen and (max-width: 412px){
+
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg); 
+  }
+
+  #player1-panel {
+    margin-left: -178px;
+  
+  }
+
+  .vs {
+    margin-left: -184px;
+  }
+
+  #question-container{
+    width: 360px;
+  }
+
+  #StartGame-btn {
+    margin-left: -165px;
+  }
+   #next-question-btn {
+
+   margin-left: -165px;
+  }
+}
