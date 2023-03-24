@@ -10,3 +10,11 @@
 
 https://elenazaharia1.github.io/quiz-game/
 
+# TODO
+
+- [] make it work on phone resolution(layout)
+- [] active pleayer
+- [] the background to the answer
+- [] change name player 1/ player 2 and text is not visible
+- [] question (mix the questions)
+- [] game logic(what the game doing/ how to play)
