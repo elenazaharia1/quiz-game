@@ -12,7 +12,7 @@ https://elenazaharia1.github.io/quiz-game/
 
 # TODO
 
-- [] make it work on phone resolution(layout) - (Works on devices Iphone XR and Samsung Galaxy A51/71 )
+- [] make it work on phone resolution(layout) -
 - [] active pleayer
 - [] the background to the answer
 - [] change name player 1/ player 2 and text is not visible
