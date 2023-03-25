@@ -149,9 +149,9 @@ button:hover {
 }
 
 /* IphoneXR */
-@media only screen and (min-width: 414px) and (max-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+@media only screen and (min-width: 393px) and (max-height: 851px) {
   #player1-panel {
-    margin-left: -192px;
+    margin-left: -214px;
   }
   body {
     background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
@@ -161,13 +161,13 @@ button:hover {
   }
 
   .vs {
-    margin-left: -200px;
+    margin-left: -205px;
   }
   #StartGame-btn {
     margin-left: -190px;
   }
   #question-container {
-    width: 354px;
+    width: 348px;
   }
 
   #next-question-btn {
