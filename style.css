@@ -17,9 +17,6 @@ body {
   }
 }
 
-.active {
-}
-
 #winnerText {
   font-size: 100px;
 }
@@ -85,16 +82,31 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: 300ms;
+  margin-left: 13px;
 }
 #player1-panel {
   background-image: url(img/descarga.jpeg);
-  background-position-y: 161px;
+  background-position-y: 144px;
   background-size: 93%;
   background-position-x: 43%;
 }
 #player2-panel {
   background-image: url(img/png-transparent-cartoon-boy-student-child-hand-photography.png);
   background-size: 190px;
+}
+
+#player {
+  font-size: 20px;
+  margin-bottom: -47px;
+  text-transform: uppercase;
+  padding-right: 215px;
+  margin-top: -27px;
+}
+#player1 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  padding-left: 215px;
 }
 
 .vs {
@@ -153,20 +165,20 @@ button:hover {
   body {
     background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
   }
-    #vs1 {
+  #vs1 {
     margin-top: -143px;
   }
   #game-container {
     width: 300px;
     text-align: center;
   }
-   #player2-panel {
+  #player2-panel {
     margin-top: 28px;
   }
-   #StartGame-btn {
+  #StartGame-btn {
     margin-top: 65px;
   }
-    #question-container {
+  #question-container {
     margin-top: 146px;
   }
   #next-question-btn {
@@ -190,14 +202,13 @@ button:hover {
   #question-container {
     margin-top: 146px;
   }
-   #player2-panel {
+  #player2-panel {
     margin-top: 28px;
   }
-   #StartGame-btn {
+  #StartGame-btn {
     margin-top: 65px;
   }
-
-  }
+}
 
 /* Iphone XR */
 
@@ -216,10 +227,10 @@ button:hover {
   #question-container {
     margin-top: 146px;
   }
-   #player2-panel {
+  #player2-panel {
     margin-top: 28px;
   }
-   #StartGame-btn {
+  #StartGame-btn {
     margin-top: 65px;
   }
 }
@@ -240,10 +251,10 @@ button:hover {
   #question-container {
     margin-top: 146px;
   }
-   #StartGame-btn {
+  #StartGame-btn {
     margin-top: 65px;
   }
-   #player2-panel {
+  #player2-panel {
     margin-top: 28px;
   }
 }
@@ -264,16 +275,16 @@ button:hover {
   #question-container {
     margin-top: 146px;
   }
-   #StartGame-btn {
+  #StartGame-btn {
     margin-top: 65px;
   }
-   #player2-panel {
+  #player2-panel {
     margin-top: 28px;
   }
 }
 
-  /* Samsung Galaxy S8+ */
-  @media only screen and (device-width: 360px) and (device-height: 740px) {
+/* Samsung Galaxy S8+ */
+@media only screen and (device-width: 360px) and (device-height: 740px) {
   body {
     background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
   }
@@ -288,7 +299,7 @@ button:hover {
   #question-container {
     margin-top: 146px;
   }
-   #StartGame-btn {
+  #StartGame-btn {
     margin-top: 65px;
   }
   #player2-panel {
@@ -320,4 +331,3 @@ button:hover {
     margin-top: 28px;
   }
 }
-

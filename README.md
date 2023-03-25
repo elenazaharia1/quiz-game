@@ -13,7 +13,7 @@ https://elenazaharia1.github.io/quiz-game/
 # TODO
 
 - [x] make it work on phone resolution(layout) 
-- [] active pleayer
+- [x] active player
 - [] the background to the answer
 - [] change name player 1/ player 2 and text is not visible
 - [] question (mix the questions)
