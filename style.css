@@ -148,3 +148,176 @@ button:hover {
   transition: 300ms;
 }
 
+/* Samsung S9+ */
+@media only screen and (device-width: 320px) and (device-height: 658px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+    #vs1 {
+    margin-top: -143px;
+  }
+  #game-container {
+    width: 300px;
+    text-align: center;
+  }
+   #player2-panel {
+    margin-top: 28px;
+  }
+   #StartGame-btn {
+    margin-top: 65px;
+  }
+    #question-container {
+    margin-top: 146px;
+  }
+  #next-question-btn {
+    margin-top: -10px;
+  }
+}
+
+/* Iphone SE */
+@media only screen and (device-width: 375px) and (device-height: 667px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+  #game-container {
+    width: 347px;
+    text-align: center;
+  }
+  #vs1 {
+    margin-top: -143px;
+  }
+
+  #question-container {
+    margin-top: 146px;
+  }
+   #player2-panel {
+    margin-top: 28px;
+  }
+   #StartGame-btn {
+    margin-top: 65px;
+  }
+
+  }
+
+/* Iphone XR */
+
+@media only screen and (device-width: 414px) and (device-height: 896px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+  #game-container {
+    width: 347px;
+    text-align: center;
+  }
+  #vs1 {
+    margin-top: -143px;
+  }
+
+  #question-container {
+    margin-top: 146px;
+  }
+   #player2-panel {
+    margin-top: 28px;
+  }
+   #StartGame-btn {
+    margin-top: 65px;
+  }
+}
+
+/* Iphone 12 Pro */
+@media only screen and (device-width: 390px) and (device-height: 844px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+  #game-container {
+    width: 347px;
+    text-align: center;
+  }
+  #vs1 {
+    margin-top: -143px;
+  }
+
+  #question-container {
+    margin-top: 146px;
+  }
+   #StartGame-btn {
+    margin-top: 65px;
+  }
+   #player2-panel {
+    margin-top: 28px;
+  }
+}
+
+/* .... */
+@media only screen and (device-width: 393px) and (device-height: 851px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+  #game-container {
+    width: 347px;
+    text-align: center;
+  }
+  #vs1 {
+    margin-top: -143px;
+  }
+
+  #question-container {
+    margin-top: 146px;
+  }
+   #StartGame-btn {
+    margin-top: 65px;
+  }
+   #player2-panel {
+    margin-top: 28px;
+  }
+}
+
+  /* Samsung Galaxy S8+ */
+  @media only screen and (device-width: 360px) and (device-height: 740px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+  #game-container {
+    width: 347px;
+    text-align: center;
+  }
+  #vs1 {
+    margin-top: -143px;
+  }
+
+  #question-container {
+    margin-top: 146px;
+  }
+   #StartGame-btn {
+    margin-top: 65px;
+  }
+  #player2-panel {
+    margin-top: 28px;
+  }
+}
+
+/* Samsung Galaxy S20 Ultra */
+
+@media only screen and (device-width: 412px) and (device-height: 915px) {
+  body {
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
+  }
+  #game-container {
+    width: 347px;
+    text-align: center;
+  }
+  #vs1 {
+    margin-top: -143px;
+  }
+
+  #question-container {
+    margin-top: 146px;
+  }
+  #StartGame-btn {
+    margin-top: 65px;
+  }
+  #player2-panel {
+    margin-top: 28px;
+  }
+}
+
