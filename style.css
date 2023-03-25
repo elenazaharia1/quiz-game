@@ -173,6 +173,10 @@ button:hover {
   #next-question-btn {
     margin-left: -190px;
   }
+ 
+#game-container {
+  margin-left: -8px;
+}
 }
 
 /* Samsung Galaxy A51/71 */
