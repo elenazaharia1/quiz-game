@@ -151,7 +151,7 @@ button:hover {
 /* IphoneXR */
 @media only screen and (min-width: 393px) and (max-height: 851px) {
   #player1-panel {
-    margin-left: -214px;
+    margin-left: -212px;
   }
   body {
     background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
@@ -167,28 +167,28 @@ button:hover {
     margin-left: -190px;
   }
   #question-container {
-    width: 348px;
+    width: 350px;
+
   }
 
   #next-question-btn {
     margin-left: -190px;
+
   }
- 
-#game-container {
-  margin-left: -8px;
-}
+  #game-container {
+    margin-left: -9px;
+    width: 600px;
+  }
 }
 
 /* Samsung Galaxy A51/71 */
-@media screen and (max-width: 412px) and (max-height: 914px){
-
+@media screen and (max-width: 412px) and (max-height: 914px) {
   body {
-    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg); 
+    background-image: url(img/vecteezy_abstract-white-fluid-wave-background_7075692.jpg);
   }
 
   #player1-panel {
     margin-left: -195px;
-  
   }
   #player2-panel {
     margin-left: -10px;
@@ -198,15 +198,14 @@ button:hover {
     margin-left: -205px;
   }
 
-  #question-container{
+  #question-container {
     width: 355px;
   }
 
   #StartGame-btn {
     margin-left: -195px;
   }
-   #next-question-btn {
-
-   margin-left: -200px;
+  #next-question-btn {
+    margin-left: -200px;
   }
 }
