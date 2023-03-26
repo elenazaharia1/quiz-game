@@ -58,15 +58,39 @@ function startGame() {
   });
 }
 
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
 // Display question and answer options
 function displayQuestion() {
-  // Get a random question from the questions array
-  const questionIndex = Math.floor(Math.random() * questions.length);
-  currentQuestion = questions[questionIndex];
+  // Shuffle the questions array
+  const shuffledQuestions = shuffle(questions);
+  // Get a random question from the shuffled questions array
+  const questionIndex = Math.floor(Math.random() * shuffledQuestions.length);
+  currentQuestion = shuffledQuestions[questionIndex];
   // Display the question
   questionElement.innerText = currentQuestion.question;
-  // Remove the question from the questions array
-  // questions.splice(questionIndex, 1);
+  // Get the index of the current question in the original questions array
+  const originalQuestionIndex = questions.indexOf(currentQuestion);
+  // Do something with the index, e.g. log it to the console
+  console.log(`Index of current question: ${originalQuestionIndex}`);
   acceptingAnswers = true;
 
   displayAnswer();
