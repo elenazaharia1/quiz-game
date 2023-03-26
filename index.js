@@ -1,5 +1,3 @@
-// Get the HTML elements
-
 const player1Score = document.getElementById("score-0");
 const player2Score = document.getElementById("score-1");
 const questionContainer = document.getElementById("question-container");
@@ -98,7 +96,9 @@ function checkAnswer(selectedOption) {
   acceptingAnswers = false;
   const selectedAnswer = selectedOption.dataset["number"];
   const classToApply =
-    selectedAnswer == currentQuestion.answer ? ".correct .answer-option" : ".incorrect .answer-option";
+    selectedAnswer == currentQuestion.answer
+      ? "correct .answer-option"
+      : "incorrect .answer-option";
 
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
@@ -157,6 +157,9 @@ function endQuiz() {
   });
 }
 
-restartBtn.addEventListener("click", () => {
+function restartGame() {
   window.location.reload();
+}
+restartBtn.addEventListener("click", () => {
+  restartGame();
 });
