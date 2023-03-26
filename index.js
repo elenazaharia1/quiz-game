@@ -98,7 +98,7 @@ function checkAnswer(selectedOption) {
   acceptingAnswers = false;
   const selectedAnswer = selectedOption.dataset["number"];
   const classToApply =
-    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+    selectedAnswer == currentQuestion.answer ? ".correct .answer-option" : ".incorrect .answer-option";
 
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
