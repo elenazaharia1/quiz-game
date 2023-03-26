@@ -111,11 +111,11 @@ body {
 .hidden {
   display: none;
 }
-.correct {
+ .correct .answer-option{
   background-color: #28a745;
 }
 
-.incorrect {
+.incorrect .answer-option{
   background-color: #dc3545;
 }
 #reset-btn {
