@@ -1,6 +1,5 @@
 // Get the HTML elements
-const player1Panel = document.getElementById("player1-panel");
-const player2Panel = document.getElementById("player2-panel");
+
 const player1Score = document.getElementById("score-0");
 const player2Score = document.getElementById("score-1");
 const questionContainer = document.getElementById("question-container");
@@ -20,9 +19,8 @@ var Corect = new Audio("happy-logoversion-3-13398.mp3");
 let currentPlayer = 0;
 let currentQuestion = 0;
 let scores = [0, 0];
-let selectedOption;
+
 let acceptingAnswers = false;
-let isGameOver = false;
 let questions = [];
 
 // Fetch the trivia questions from a JSON file
@@ -44,11 +42,18 @@ fetch("questions.json")
 
 function startGame() {
   questionContainer.classList.add("hidden");
+
   newGame.addEventListener("click", () => {
     questionContainer.classList.remove("hidden");
+
     newGame.classList.add("hidden");
+
     nextQuestionButton.classList.remove("hidden");
+
+    restartBtn.classList.remove("hidden");
+
     displayQuestion();
+
     nextBtnAndRestartBtn();
   });
 }
@@ -60,17 +65,33 @@ function displayQuestion() {
   currentQuestion = questions[questionIndex];
   // Display the question
   questionElement.innerText = currentQuestion.question;
-
-  // Display the answer options
-  answerElements.forEach((option) => {
-    const number = option.dataset["number"];
-    option.innerText = currentQuestion["option" + number];
-  });
-
   // Remove the question from the questions array
-  questions.splice(questionIndex, 1);
+  // questions.splice(questionIndex, 1);
   acceptingAnswers = true;
+
+  displayAnswer();
 }
+// Display the answer options
+function displayAnswer() {
+  let optionChoice;
+  answerElements.forEach((option) => {
+    number = option.dataset["number"];
+    option.innerText = currentQuestion["option" + number];
+    optionChoice = option;
+
+    // console.log(optionChoice);
+  });
+}
+
+function Answer(option) {
+  answerElements.forEach((option) => {
+    option.addEventListener("click", (e) => {
+      if (!acceptingAnswers) return;
+      checkAnswer(e.target);
+    });
+  });
+}
+Answer();
 
 // Check if the selected answer is correct or not
 function checkAnswer(selectedOption) {
@@ -82,6 +103,7 @@ function checkAnswer(selectedOption) {
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
     console.log("bun");
+
     Corect.play();
     scores[currentPlayer]++;
     document.getElementById(`score-${currentPlayer}`).textContent =
@@ -104,28 +126,13 @@ function checkAnswer(selectedOption) {
   }, 5000);
 }
 
-answerElements.forEach((option) => {
-  option.addEventListener("click", (e) => {
-    if (!acceptingAnswers) return;
-    checkAnswer(e.target);
-  });
-});
-
 function nextBtnAndRestartBtn() {
   nextQuestionButton.addEventListener("click", () => {
     if (questions.length === 0) {
       nextQuestionButton.classList.add("hidden");
-      restartBtn.classList.remove("hidden");
-      questionContainer.classList.add("hidden");
-      startGame();
-      winner();
     } else {
       displayQuestion();
     }
-  });
-
-  restartBtn.addEventListener("click", () => {
-    window.location.reload();
   });
 }
 
@@ -141,4 +148,11 @@ function winner() {
     console.log("p1win");
     winnerText.innerText = "Player1 Win";
   }
+}
+
+function endQuiz() {
+  restartBtn.addEventListener("click", () => {
+    questionContainer.classList.add("hidden");
+    window.location.reload();
+  });
 }
