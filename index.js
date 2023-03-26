@@ -156,3 +156,7 @@ function endQuiz() {
     window.location.reload();
   });
 }
+
+restartBtn.addEventListener("click", () => {
+  window.location.reload();
+});
