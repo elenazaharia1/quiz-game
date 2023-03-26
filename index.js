@@ -1,5 +1,7 @@
 const player1Score = document.getElementById("score-0");
 const player2Score = document.getElementById("score-1");
+const player1Panel = document.getElementById("player1-panel");
+const player2Panel = document.getElementById("player2-panel");
 const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerOptions = document.getElementById("answer-options");
@@ -96,9 +98,7 @@ function checkAnswer(selectedOption) {
   acceptingAnswers = false;
   const selectedAnswer = selectedOption.dataset["number"];
   const classToApply =
-    selectedAnswer == currentQuestion.answer
-      ? "correct"
-      : "incorrect";
+    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
@@ -113,8 +113,8 @@ function checkAnswer(selectedOption) {
     // If the answer is incorrect, switch to the other player's turn
     Wrong.play();
     currentPlayer = currentPlayer === 0 ? 1 : 0;
-    document.querySelector("#player1").classList.toggle("active");
-    document.querySelector("#player2").classList.toggle("active");
+    player2Panel.classList.toggle("active");
+    player1Panel.classList.toggle("active");
   }
 
   // Display the selected answer as correct or incorrect
@@ -148,13 +148,6 @@ function winner() {
     console.log("p1win");
     winnerText.innerText = "Player1 Win";
   }
-}
-
-function endQuiz() {
-  restartBtn.addEventListener("click", () => {
-    questionContainer.classList.add("hidden");
-    window.location.reload();
-  });
 }
 
 function restartGame() {
