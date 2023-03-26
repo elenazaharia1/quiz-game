@@ -113,8 +113,8 @@ function checkAnswer(selectedOption) {
     // If the answer is incorrect, switch to the other player's turn
     Wrong.play();
     currentPlayer = currentPlayer === 0 ? 1 : 0;
-    document.querySelector("#player1-panel").classList.toggle("active");
-    document.querySelector("#player2-panel").classList.toggle("active");
+    document.querySelector("#player1").classList.toggle("active");
+    document.querySelector("#player2").classList.toggle("active");
   }
 
   // Display the selected answer as correct or incorrect
