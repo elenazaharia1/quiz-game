@@ -4,27 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <body>
       <div id="game-container">
-        <div id="player1-panel">
-          <div class="player-score" id="score-0">0</div>
-        </div>
-
-        <div id="player2-panel">
-          <div class="player-score" id="score-1">0</div>
-        </div>
-        <div id="player1">Player 2</div>
-        <div id="player2" class="active">Player 1</div>
-        <div id="vs1">
-          <div class="vs">
-            <label>VS</label>
+        <div class="panels">
+          <div id="player1-panel" class="active">
+            <div class="player-score" id="score-0">0</div>
+            <div id="player1"><h1>Player 1</h1></div>
+          </div>
+          <div id="vs1">
+            <div class="vs">
+              <h1>VS</h1>
+            </div>
+          </div>
+          <div id="player2-panel">
+            <div class="player-score" id="score-1">0</div>
+            <div id="player2"><h1>Player 2</h1></div>
           </div>
         </div>
+
         <div id="question-container">
           <div id="question"></div>
 
