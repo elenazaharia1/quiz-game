@@ -19,7 +19,7 @@ var Corect = new Audio("happy-logoversion-3-13398.mp3");
 let currentPlayer = 0;
 let currentQuestion = 0;
 let scores = [0, 0];
-
+let isGameOver = false;
 let acceptingAnswers = false;
 let questions = [];
 
@@ -79,22 +79,39 @@ function shuffle(array) {
 }
 
 // Display question and answer options
+
 function displayQuestion() {
   // Shuffle the questions array
   const shuffledQuestions = shuffle(questions);
+
+  // If there are no more questions, end the game
+  if (shuffledQuestions.length === 0) {
+    isGameOver = true;
+    winner();
+    return;
+  }
+
   // Get a random question from the shuffled questions array
   const questionIndex = Math.floor(Math.random() * shuffledQuestions.length);
   currentQuestion = shuffledQuestions[questionIndex];
+
   // Display the question
   questionElement.innerText = currentQuestion.question;
+
   // Get the index of the current question in the original questions array
   const originalQuestionIndex = questions.indexOf(currentQuestion);
+
   // Do something with the index, e.g. log it to the console
   console.log(`Index of current question: ${originalQuestionIndex}`);
+
+  // Remove the current question from the original questions array
+  questions.splice(originalQuestionIndex, 1);
+
   acceptingAnswers = true;
 
   displayAnswer();
 }
+
 // Display the answer options
 function displayAnswer() {
   let optionChoice;
@@ -117,7 +134,6 @@ function Answer(option) {
 }
 Answer();
 
-// Check if the selected answer is correct or not
 function checkAnswer(selectedOption) {
   acceptingAnswers = false;
   const selectedAnswer = selectedOption.dataset["number"];
@@ -143,10 +159,18 @@ function checkAnswer(selectedOption) {
 
   // Display the selected answer as correct or incorrect
   selectedOption.parentElement.classList.add(classToApply);
+
+  // If there are no more questions, end the game
+  if (questions.length === 0) {
+    isGameOver = true;
+    winner();
+    return;
+  }
+
+  // Otherwise, display the next question after a delay
   setTimeout(() => {
     selectedOption.parentElement.classList.remove(classToApply);
-    currentQuestion++;
-    displayQuestion(currentQuestion);
+    displayQuestion();
   }, 5000);
 }
 
@@ -161,16 +185,12 @@ function nextBtnAndRestartBtn() {
 }
 
 function winner() {
-  currentPlayer[scores];
   if (scores[0] === scores[1]) {
-    console.log("bun");
-    winnerText.innerText = "Remiza";
-  } else if (scores[0] < scores[1]) {
-    console.log("p2Win");
-    winnerText.innerText = "Player2 Win";
+    winnerText.innerText = "It's a tie!";
+  } else if (scores[0] > scores[1]) {
+    winnerText.innerText = "Player 1 Wins!";
   } else {
-    console.log("p1win");
-    winnerText.innerText = "Player1 Win";
+    winnerText.innerText = "Player 2 Wins!";
   }
 }
 
