@@ -143,7 +143,6 @@ function checkAnswer(selectedOption) {
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
     console.log("bun");
-
     Corect.play();
     scores[currentPlayer]++;
     document.getElementById(`score-${currentPlayer}`).textContent =
@@ -156,9 +155,7 @@ function checkAnswer(selectedOption) {
     player2Panel.classList.toggle("active");
     player1Panel.classList.toggle("active");
   }
-
-  // Display the selected answer as correct or incorrect
-  selectedOption.parentElement.classList.add(classToApply);
+  selectedOption.classList.add(classToApply); // add color of answer
 
   // If there are no more questions, end the game
   if (questions.length === 0) {
@@ -169,8 +166,9 @@ function checkAnswer(selectedOption) {
 
   // Otherwise, display the next question after a delay
   setTimeout(() => {
-    selectedOption.parentElement.classList.remove(classToApply);
     displayQuestion();
+    selectedOption.classList.remove("correct");
+    selectedOption.classList.remove("incorrect");
   }, 5000);
 }
 

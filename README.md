@@ -14,7 +14,7 @@ https://elenazaharia1.github.io/quiz-game/
 
 - [x] make it work on phone resolution(layout)
 - [x] active player
-- [] the background to the answer
+- [x] the background to the answer
 - [x] change name player 1/ player 2 and text is not visible
 - [] question (mix the questions with Shuffle)
 - [] game logic(what the game doing/ how to play)
