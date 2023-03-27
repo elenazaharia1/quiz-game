@@ -103,7 +103,7 @@ function displayQuestion() {
 
   // Do something with the index, e.g. log it to the console
   console.log(`Index of current question: ${originalQuestionIndex}`);
-
+  console.log(originalQuestionIndex);
   // Remove the current question from the original questions array
   questions.splice(originalQuestionIndex, 1);
 
@@ -169,7 +169,7 @@ function checkAnswer(selectedOption) {
     displayQuestion();
     selectedOption.classList.remove("correct");
     selectedOption.classList.remove("incorrect");
-  }, 5000);
+  }, 1000);
 }
 
 function nextBtnAndRestartBtn() {
@@ -190,6 +190,8 @@ function winner() {
   } else {
     winnerText.innerText = "Player 2 Wins!";
   }
+  questionContainer.classList.add("hidden");
+  nextQuestionButton.classList.add("hidden");
 }
 
 function restartGame() {
