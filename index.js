@@ -167,9 +167,8 @@ function checkAnswer(selectedOption) {
   // Otherwise, display the next question after a delay
   setTimeout(() => {
     displayQuestion();
-    selectedOption.classList.remove("correct");
-    selectedOption.classList.remove("incorrect");
-  }, 1000);
+    selectedOption.classList.remove(classToApply);
+  }, 5000);
 }
 
 function nextBtnAndRestartBtn() {
