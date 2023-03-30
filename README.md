@@ -16,6 +16,6 @@ https://elenazaharia1.github.io/quiz-game/
 - [x] active player
 - [x] the background to the answer
 - [x] change name player 1/ player 2 and text is not visible
-- [] question (mix the questions with Shuffle)
+- [x] question (remove questions if is correct)
 - [] game logic(what the game doing/ how to play)
 - [x] it gets stuck at question 16

@@ -12,6 +12,7 @@ const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
 const newGame = document.getElementById("StartGame-btn");
 const winnerText = document.getElementById("winnerText");
+let removeQuestions = [];
 
 var Wrong = new Audio("laser_falling-104772.mp3");
 var Corect = new Audio("happy-logoversion-3-13398.mp3");
@@ -58,59 +59,22 @@ function startGame() {
   });
 }
 
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
-// Display question and answer options
-
 function displayQuestion() {
-  // Shuffle the questions array
-  const shuffledQuestions = shuffle(questions);
-
-  // If there are no more questions, end the game
-  if (shuffledQuestions.length === 0) {
-    isGameOver = true;
-    winner();
-    return;
-  }
-
-  // Get a random question from the shuffled questions array
-  const questionIndex = Math.floor(Math.random() * shuffledQuestions.length);
-  currentQuestion = shuffledQuestions[questionIndex];
-
+  // Get a random question from the questions array
+  const questionIndex = questions[Math.floor(Math.random() * questions.length)];
+  currentQuestion = questionIndex;
   // Display the question
   questionElement.innerText = currentQuestion.question;
 
-  // Get the index of the current question in the original questions array
-  const originalQuestionIndex = questions.indexOf(currentQuestion);
+  removeQuestions = questions.indexOf(questionIndex);
 
-  // Do something with the index, e.g. log it to the console
-  console.log(`Index of current question: ${originalQuestionIndex}`);
-  console.log(originalQuestionIndex);
-  // Remove the current question from the original questions array
-  questions.splice(originalQuestionIndex, 1);
-
+  console.log(questions);
   acceptingAnswers = true;
 
   displayAnswer();
 }
+
+// Display question and answer options
 
 // Display the answer options
 function displayAnswer() {
@@ -145,8 +109,13 @@ function checkAnswer(selectedOption) {
     console.log("bun");
     Corect.play();
     scores[currentPlayer]++;
+
     document.getElementById(`score-${currentPlayer}`).textContent =
       scores[currentPlayer];
+
+    // Remove the question from the questions array
+
+    questions.splice(removeQuestions, 1);
     console.log("point added");
   } else {
     // If the answer is incorrect, switch to the other player's turn
