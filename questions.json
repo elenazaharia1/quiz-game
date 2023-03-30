@@ -79,14 +79,7 @@
     "option4": "Skin",
     "answer": 4
   },
-  {
-    "question": "Who painted the Mona Lisa?",
-    "option1": "Leonardo da Vinci",
-    "option2": "Pablo Picasso",
-    "option3": "Vincent van Gogh",
-    "option4": "Rembrandt",
-    "answer": 1
-  },
+  ,
   {
     "question": "What is the tallest mammal?",
     "option1": "Elephant",
