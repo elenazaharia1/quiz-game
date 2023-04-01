@@ -12,10 +12,7 @@ const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
 const newGame = document.getElementById("StartGame-btn");
 const winnerText = document.getElementById("winnerText");
-let removeQuestions = [];
 
-var Wrong = new Audio("laser_falling-104772.mp3");
-var Corect = new Audio("happy-logoversion-3-13398.mp3");
 // Define variables
 let currentPlayer = 0;
 let currentQuestion = 0;
@@ -23,23 +20,28 @@ let scores = [0, 0];
 let isGameOver = false;
 let acceptingAnswers = false;
 let questions = [];
-
+let removeQuestions = [];
+let Wrong = new Audio("laser_falling-104772.mp3");
+let Corect = new Audio("happy-logoversion-3-13398.mp3");
 // Fetch the trivia questions from a JSON file
-fetch("questions.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("problem ");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    questions = data;
-    startGame();
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error(" problem ", error);
-  });
+
+function loadQuestion() {
+  fetch("questions.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("problem ");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      questions = data;
+      startGame();
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(" problem ", error);
+    });
+}
 
 function startGame() {
   questionContainer.classList.add("hidden");
@@ -78,25 +80,16 @@ function displayQuestion() {
 
 // Display the answer options
 function displayAnswer() {
-  let optionChoice;
   answerElements.forEach((option) => {
     number = option.dataset["number"];
     option.innerText = currentQuestion["option" + number];
-    optionChoice = option;
 
-    // console.log(optionChoice);
-  });
-}
-
-function Answer(option) {
-  answerElements.forEach((option) => {
     option.addEventListener("click", (e) => {
       if (!acceptingAnswers) return;
       checkAnswer(e.target);
     });
   });
 }
-Answer();
 
 function checkAnswer(selectedOption) {
   acceptingAnswers = false;
@@ -106,7 +99,6 @@ function checkAnswer(selectedOption) {
 
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
-    console.log("bun");
     Corect.play();
     scores[currentPlayer]++;
 
@@ -168,3 +160,5 @@ function restartGame() {
 restartBtn.addEventListener("click", () => {
   restartGame();
 });
+
+loadQuestion();
