@@ -5,9 +5,7 @@ const player2Panel = document.getElementById("player2-panel");
 const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerOptions = document.getElementById("answer-options");
-const answerElements = Array.from(
-  document.getElementsByClassName("answer-option")
-);
+const answerElements = Array.from(document.getElementsByClassName("answer-option"));
 const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
 const newGame = document.getElementById("StartGame-btn");
@@ -27,18 +25,18 @@ let Corect = new Audio("happy-logoversion-3-13398.mp3");
 
 function loadQuestion() {
   fetch("questions.json")
-    .then((response) => {
+    .then(response => {
       if (!response.ok) {
         throw new Error("problem ");
       }
       return response.json();
     })
-    .then((data) => {
+    .then(data => {
       questions = data;
       startGame();
       console.log(data);
     })
-    .catch((error) => {
+    .catch(error => {
       console.error(" problem ", error);
     });
 }
@@ -80,11 +78,11 @@ function displayQuestion() {
 
 // Display the answer options
 function displayAnswer() {
-  answerElements.forEach((option) => {
+  answerElements.forEach(option => {
     number = option.dataset["number"];
     option.innerText = currentQuestion["option" + number];
 
-    option.addEventListener("click", (e) => {
+    option.addEventListener("click", e => {
       if (!acceptingAnswers) return;
       checkAnswer(e.target);
     });
@@ -94,16 +92,14 @@ function displayAnswer() {
 function checkAnswer(selectedOption) {
   acceptingAnswers = false;
   const selectedAnswer = selectedOption.dataset["number"];
-  const classToApply =
-    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+  const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
     Corect.play();
     scores[currentPlayer]++;
 
-    document.getElementById(`score-${currentPlayer}`).textContent =
-      scores[currentPlayer];
+    document.getElementById(`score-${currentPlayer}`).textContent = scores[currentPlayer];
 
     // Remove the question from the questions array
 
