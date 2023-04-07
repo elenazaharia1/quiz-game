@@ -4,21 +4,20 @@ const player1Panel = document.getElementById("player1-panel");
 const player2Panel = document.getElementById("player2-panel");
 const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
-const answerOptions = document.getElementById("answer-options");
-const answerElements = Array.from(document.getElementsByClassName("answer-option"));
+const answerOptions = document.querySelector(".answer-options");
+const answerElements = document.querySelectorAll(".answer-option");
 const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
-const newGame = document.getElementById("StartGame-btn");
+const newGame = document.querySelector("#StartGame-btn");
 const winnerText = document.getElementById("winnerText");
 
 // Define variables
 let currentPlayer = 0;
-let currentQuestion = 0;
 let scores = [0, 0];
 let isGameOver = false;
 let acceptingAnswers = false;
-let questions = [];
-let removeQuestions = [];
+let questions, removeQuestions, currentQuestion;
+
 let Wrong = new Audio("laser_falling-104772.mp3");
 let Corect = new Audio("happy-logoversion-3-13398.mp3");
 // Fetch the trivia questions from a JSON file
@@ -34,10 +33,7 @@ function loadQuestion() {
     .then(data => {
       questions = data;
       startGame();
-      console.log(data);
-    })
-    .catch(error => {
-      console.error(" problem ", error);
+      console.log(questions);
     });
 }
 
@@ -54,34 +50,35 @@ function startGame() {
     restartBtn.classList.remove("hidden");
 
     displayQuestion();
-
+    restartGame();
     nextBtnAndRestartBtn();
   });
 }
 
 function displayQuestion() {
+  acceptingAnswers = true;
+
   // Get a random question from the questions array
-  const questionIndex = questions[Math.floor(Math.random() * questions.length)];
-  currentQuestion = questionIndex;
+  currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+
   // Display the question
   questionElement.innerText = currentQuestion.question;
 
-  removeQuestions = questions.indexOf(questionIndex);
-
-  console.log(questions);
-  acceptingAnswers = true;
+  removeQuestions = questions.indexOf(currentQuestion);
 
   displayAnswer();
-}
 
-// Display question and answer options
+  console.log(questions);
+}
 
 // Display the answer options
 function displayAnswer() {
+  let number;
   answerElements.forEach(option => {
     number = option.dataset["number"];
-    option.innerText = currentQuestion["option" + number];
 
+    option.innerText = currentQuestion["option" + number];
+    // console.log(number);
     option.addEventListener("click", e => {
       if (!acceptingAnswers) return;
       checkAnswer(e.target);
@@ -91,7 +88,10 @@ function displayAnswer() {
 
 function checkAnswer(selectedOption) {
   acceptingAnswers = false;
+
   const selectedAnswer = selectedOption.dataset["number"];
+
+  console.info(selectedAnswer);
   const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
   // If the answer is correct, add a point to the current player's score
@@ -151,10 +151,9 @@ function winner() {
 }
 
 function restartGame() {
-  window.location.reload();
+  restartBtn.addEventListener("click", () => {
+    window.location.reload();
+  });
 }
-restartBtn.addEventListener("click", () => {
-  restartGame();
-});
 
 loadQuestion();
