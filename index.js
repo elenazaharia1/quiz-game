@@ -10,7 +10,7 @@ const nextQuestionButton = document.getElementById("next-question-btn");
 const restartBtn = document.getElementById("reset-btn");
 const newGame = document.querySelector("#StartGame-btn");
 const winnerText = document.getElementById("winnerText");
-
+const panels = document.querySelector(".panels");
 // Define variables
 let currentPlayer = 0;
 let scores = [0, 0];
@@ -41,6 +41,7 @@ function startGame() {
   questionContainer.classList.add("hidden");
 
   newGame.addEventListener("click", () => {
+    panels.style.display = "flex";
     questionContainer.classList.remove("hidden");
 
     newGame.classList.add("hidden");

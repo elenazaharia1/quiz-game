@@ -143,6 +143,7 @@ button:hover {
   gap: 2rem;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 
 @media (max-width: 50rem) {
