@@ -1,7 +1,7 @@
 body {
   height: 100%;
   font-family: "Poppins", sans-serif;
-  background-image: url(img/question-mark-1872665_960_720.jpg);
+  background: url(img/question-mark-1872665_960_720.jpg) no-repeat center center fixed;
   /* animation: back 30s linear;
   animation-iteration-count: infinite; */
   display: flex;
