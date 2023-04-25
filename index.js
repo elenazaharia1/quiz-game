@@ -18,8 +18,9 @@ let isGameOver = false;
 let acceptingAnswers = false;
 let questions, removeQuestions, currentQuestion;
 
-let AudioStart = new Audio("french-jazz-music-142911.mp3");
-
+let AudioStart = new Audio("songs/french-jazz-music-142911.mp3");
+let correctAnswer = new Audio("songs/open-new-level-143027.mp3");
+let wrongAnswer = new Audio("songs/buzzer-or-wrong-answer-20582.mp3");
 // Fetch the trivia questions from a JSON file
 
 function loadQuestion() {
@@ -99,7 +100,7 @@ function checkAnswer(selectedOption) {
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
     scores[currentPlayer]++;
-
+    correctAnswer.play();
     document.getElementById(`score-${currentPlayer}`).textContent = scores[currentPlayer];
 
     // Remove the question from the questions array
@@ -108,7 +109,7 @@ function checkAnswer(selectedOption) {
     console.log("point added");
   } else {
     // If the answer is incorrect, switch to the other player's turn
-
+    wrongAnswer.play();
     currentPlayer = currentPlayer === 0 ? 1 : 0;
     player2Panel.classList.toggle("active");
     player1Panel.classList.toggle("active");
@@ -141,11 +142,11 @@ function nextBtnAndRestartBtn() {
 
 function winner() {
   if (scores[0] === scores[1]) {
-    winnerText.innerText = "It's a tie!";
+    winnerText.innerText = "🤝It's a tie!🤝";
   } else if (scores[0] > scores[1]) {
-    winnerText.innerText = "Player 1 Wins!";
+    winnerText.innerText = " 🥇Player 1 Wins!🥇";
   } else {
-    winnerText.innerText = "Player 2 Wins!";
+    winnerText.innerText = "🥇Player 2 Wins!🥇";
   }
   questionContainer.classList.add("hidden");
   nextQuestionButton.classList.add("hidden");
