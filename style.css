@@ -147,13 +147,15 @@ button:hover {
 }
 
 @media (max-width: 50rem) {
-  body {
-    background-size: auto;
-  }
   .panels {
     gap: 1rem;
   }
-
+  #player1 img {
+    width: 120px;
+  }
+  #player2 img {
+    width: 90px;
+  }
   #answer-options {
     display: flex;
     flex-direction: column;
@@ -174,15 +176,13 @@ button:hover {
   .panels {
     flex-direction: column;
     align-items: center;
-    gap: 0;
+    gap: 1rem;
   }
 
   #player1-panel,
   #player2-panel {
-    display: inline-block;
     padding: 10px;
     margin: 5px;
-
     width: 150px;
     vertical-align: top;
   }
