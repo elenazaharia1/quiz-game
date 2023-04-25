@@ -18,8 +18,8 @@ let isGameOver = false;
 let acceptingAnswers = false;
 let questions, removeQuestions, currentQuestion;
 
-let Wrong = new Audio("laser_falling-104772.mp3");
-let Corect = new Audio("happy-logoversion-3-13398.mp3");
+let AudioStart = new Audio("french-jazz-music-142911.mp3");
+
 // Fetch the trivia questions from a JSON file
 
 function loadQuestion() {
@@ -39,7 +39,7 @@ function loadQuestion() {
 
 function startGame() {
   questionContainer.classList.add("hidden");
-
+  AudioStart.play();
   newGame.addEventListener("click", () => {
     panels.style.display = "flex";
     questionContainer.classList.remove("hidden");
@@ -97,7 +97,6 @@ function checkAnswer(selectedOption) {
 
   // If the answer is correct, add a point to the current player's score
   if (classToApply === "correct") {
-    Corect.play();
     scores[currentPlayer]++;
 
     document.getElementById(`score-${currentPlayer}`).textContent = scores[currentPlayer];
@@ -108,7 +107,7 @@ function checkAnswer(selectedOption) {
     console.log("point added");
   } else {
     // If the answer is incorrect, switch to the other player's turn
-    Wrong.play();
+
     currentPlayer = currentPlayer === 0 ? 1 : 0;
     player2Panel.classList.toggle("active");
     player1Panel.classList.toggle("active");

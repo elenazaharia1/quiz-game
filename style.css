@@ -1,7 +1,7 @@
 body {
   height: 100%;
   font-family: "Poppins", sans-serif;
-  background-image: url(img/question-mark-sign-led-light-illustration.jpg);
+  background-image: url(img/question-mark-1872665_960_720.jpg);
   /* animation: back 30s linear;
   animation-iteration-count: infinite; */
   display: flex;
@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  color: #080808ab;
+  color: #ffffff;
 }
 
 /* @keyframes back {
@@ -101,7 +101,7 @@ button {
   text-shadow: 0px 0px 1px rgb(233, 35, 101), 0px 0px 2px rgb(87, 5, 5);
   transform: scale(1, 1);
   font-family: inherit;
-  margin-top: 20px;
+  margin-top: 230px;
   padding: 10px 20px;
   background-color: #4caf50;
   color: #fff;
