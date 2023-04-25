@@ -39,8 +39,9 @@ function loadQuestion() {
 
 function startGame() {
   questionContainer.classList.add("hidden");
-  AudioStart.play();
+
   newGame.addEventListener("click", () => {
+    AudioStart.play();
     panels.style.display = "flex";
     questionContainer.classList.remove("hidden");
 
@@ -125,7 +126,7 @@ function checkAnswer(selectedOption) {
   setTimeout(() => {
     displayQuestion();
     selectedOption.classList.remove(classToApply);
-  }, 5000);
+  }, 3000);
 }
 
 function nextBtnAndRestartBtn() {
