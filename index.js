@@ -1,16 +1,25 @@
-const player1Score = document.getElementById("score-0");
-const player2Score = document.getElementById("score-1");
-const player1Panel = document.getElementById("player1-panel");
-const player2Panel = document.getElementById("player2-panel");
-const questionContainer = document.getElementById("question-container");
-const questionElement = document.getElementById("question");
-const answerOptions = document.querySelector(".answer-options");
-const answerElements = document.querySelectorAll(".answer-option");
-const nextQuestionButton = document.getElementById("next-question-btn");
-const restartBtn = document.getElementById("reset-btn");
-const newGame = document.querySelector("#StartGame-btn");
-const winnerText = document.getElementById("winnerText");
-const panels = document.querySelector(".panels");
+const player1Score = $("#score-0");
+const player2Score = $("#score-1");
+const player1Panel = $("#player1-panel");
+const player2Panel = $("#player2-panel");
+const questionContainer = $("#question-container");
+const questionElement = $("#question");
+const answerOptions = $(".answer-options");
+const answerElements = $$(".answer-option");
+const nextQuestionButton = $("#next-question-btn");
+const restartBtn = $("#reset-btn");
+const newGame = $("#StartGame-btn");
+const winnerText = $("#winnerText");
+const panels = $(".panels");
+
+function $(selector) {
+  return document.querySelector(selector);
+}
+
+function $$(selector) {
+  return document.querySelectorAll(selector);
+}
+
 // Define variables
 let currentPlayer = 0;
 let scores = [0, 0];
@@ -42,7 +51,7 @@ function startGame() {
   questionContainer.classList.add("hidden");
 
   newGame.addEventListener("click", () => {
-    AudioStart.play();
+    // AudioStart.play();
     panels.style.display = "flex";
     questionContainer.classList.remove("hidden");
 
