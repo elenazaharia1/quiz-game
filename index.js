@@ -1,16 +1,10 @@
-const player1Score = $("#score-0");
-const player2Score = $("#score-1");
-const player1Panel = $("#player1-panel");
-const player2Panel = $("#player2-panel");
-const questionContainer = $("#question-container");
-const questionElement = $("#question");
-const answerOptions = $(".answer-options");
-const answerElements = $$(".answer-option");
-const nextQuestionButton = $("#next-question-btn");
-const restartBtn = $("#reset-btn");
-const newGame = $("#StartGame-btn");
-const winnerText = $("#winnerText");
-const panels = $(".panels");
+// Define variables
+
+let currentPlayer = 0;
+let scores = [0, 0];
+let isGameOver = false;
+let acceptingAnswers = false;
+let questions, removeQuestions, currentQuestion;
 
 function $(selector) {
   return document.querySelector(selector);
@@ -20,16 +14,6 @@ function $$(selector) {
   return document.querySelectorAll(selector);
 }
 
-// Define variables
-let currentPlayer = 0;
-let scores = [0, 0];
-let isGameOver = false;
-let acceptingAnswers = false;
-let questions, removeQuestions, currentQuestion;
-
-let AudioStart = new Audio("songs/french-jazz-music-142911.mp3");
-let correctAnswer = new Audio("songs/open-new-level-143027.mp3");
-let wrongAnswer = new Audio("songs/buzzer-or-wrong-answer-20582.mp3");
 // Fetch the trivia questions from a JSON file
 
 function loadQuestion() {
@@ -48,18 +32,18 @@ function loadQuestion() {
 }
 
 function startGame() {
-  questionContainer.classList.add("hidden");
+  $("#question-container").classList.add("hidden");
 
-  newGame.addEventListener("click", () => {
-    // AudioStart.play();
-    panels.style.display = "flex";
-    questionContainer.classList.remove("hidden");
+  $("#StartGame-btn").addEventListener("click", () => {
+    $(".panels").style.display = "flex";
 
-    newGame.classList.add("hidden");
+    $("#question-container").classList.remove("hidden");
 
-    nextQuestionButton.classList.remove("hidden");
+    $("#StartGame-btn").classList.add("hidden");
 
-    restartBtn.classList.remove("hidden");
+    $("#next-question-btn").classList.remove("hidden");
+
+    $("#reset-btn").classList.remove("hidden");
 
     displayQuestion();
     restartGame();
@@ -74,7 +58,7 @@ function displayQuestion() {
   currentQuestion = questions[Math.floor(Math.random() * questions.length)];
 
   // Display the question
-  questionElement.innerText = currentQuestion.question;
+  $("#question").innerText = currentQuestion.question;
 
   removeQuestions = questions.indexOf(currentQuestion);
 
@@ -85,9 +69,8 @@ function displayQuestion() {
 
 // Display the answer options
 function displayAnswer() {
-  let number;
-  answerElements.forEach(option => {
-    number = option.dataset["number"];
+  $$(".answer-option").forEach(option => {
+    let number = option.dataset["number"];
 
     option.innerText = currentQuestion["option" + number];
     // console.log(number);
@@ -100,6 +83,9 @@ function displayAnswer() {
 
 function checkAnswer(selectedOption) {
   acceptingAnswers = false;
+
+  let correctAnswer = new Audio("songs/open-new-level-143027.mp3");
+  let wrongAnswer = new Audio("songs/buzzer-or-wrong-answer-20582.mp3");
 
   const selectedAnswer = selectedOption.dataset["number"];
 
@@ -120,8 +106,9 @@ function checkAnswer(selectedOption) {
     // If the answer is incorrect, switch to the other player's turn
     wrongAnswer.play();
     currentPlayer = currentPlayer === 0 ? 1 : 0;
-    player2Panel.classList.toggle("active");
-    player1Panel.classList.toggle("active");
+
+    $("#player2-panel").classList.toggle("active");
+    $("#player1-panel").classList.toggle("active");
   }
   selectedOption.classList.add(classToApply); // add color of answer
 
@@ -140,9 +127,9 @@ function checkAnswer(selectedOption) {
 }
 
 function nextBtnAndRestartBtn() {
-  nextQuestionButton.addEventListener("click", () => {
+  $("#next-question-btn").addEventListener("click", () => {
     if (questions.length === 0) {
-      nextQuestionButton.classList.add("hidden");
+      $("#next-question-btn").classList.add("hidden");
     } else {
       displayQuestion();
     }
@@ -150,6 +137,8 @@ function nextBtnAndRestartBtn() {
 }
 
 function winner() {
+  const winnerText = $("#winnerText");
+
   if (scores[0] === scores[1]) {
     winnerText.innerText = "🤝It's a tie!🤝";
   } else if (scores[0] > scores[1]) {
@@ -157,14 +146,13 @@ function winner() {
   } else {
     winnerText.innerText = "🥇Player 2 Wins!🥇";
   }
-  questionContainer.classList.add("hidden");
-  nextQuestionButton.classList.add("hidden");
+  $("#question-container").classList.add("hidden");
+  $("#next-question-btn").classList.add("hidden");
 }
 
 function restartGame() {
-  restartBtn.addEventListener("click", () => {
+  $("#reset-btn").addEventListener("click", () => {
     window.location.reload();
   });
 }
-
 loadQuestion();
