@@ -8,8 +8,8 @@
 
 ## 🎞 Live
 
-<img src="./img/photo1.jpg" width=300 height=300 >
-<img src="./img/photo2.jpg" width=300 height=300 >
+<img src="./img/photo1.jpg" width=500  >
+<img src="./img/photo2.jpg" width=500  >
 - ➡️[Projects](https://elenazaharia1.github.io/quiz-game/)
 
 ## 🙄Developers TODOs😏
