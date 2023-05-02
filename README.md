@@ -1,15 +1,16 @@
 # Quiz-Game 2 Players
 
-## ✌️Team-members 
+## ✌️Team-members
 
 - [Elena Zaharia](https://github.com/elenazaharia1)
 - [Vaida Aurel Nicolae](https://github.com/vaidanicu)
 - [Valentin Constantinescu](https://github.com/Ipadios12)
 
-## 🎞 Live Preview
+## 🎞 Live
 
+<img src="./img/photo1.jpg" width=300 height=300 >
+<img src="./img/photo2.jpg" width=300 height=300 >
 - ➡️[Projects](https://elenazaharia1.github.io/quiz-game/)
-
 
 ## 🙄Developers TODOs😏
 
