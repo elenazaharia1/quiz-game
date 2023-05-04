@@ -16,8 +16,8 @@ function $$(selector) {
 
 // Fetch the trivia questions from a JSON file
 
-function loadQuestion() {
-  loadQuestionsRequest().then(data => {
+function loadQuestion() {fetch("questions.json").then(response => response.json());
+  .then(data => {
     questions = data;
     startGame();
     console.log(questions);
