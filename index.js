@@ -17,18 +17,11 @@ function $$(selector) {
 // Fetch the trivia questions from a JSON file
 
 function loadQuestion() {
-  fetch("questions.json")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("problem ");
-      }
-      return response.json();
-    })
-    .then(data => {
-      questions = data;
-      startGame();
-      console.log(questions);
-    });
+  loadQuestionsRequest().then(data => {
+    questions = data;
+    startGame();
+    console.log(questions);
+  });
 }
 
 function startGame() {

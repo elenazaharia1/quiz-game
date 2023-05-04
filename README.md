@@ -6,11 +6,12 @@
 - [Vaida Aurel Nicolae](https://github.com/vaidanicu)
 - [Valentin Constantinescu](https://github.com/Ipadios12)
 
-## 🎞 Live
+## 🎞 Live Preview
 
-<img src="./img/photo1.jpg" width=300 height=300 >
-<img src="./img/photo2.jpg" width=300 height=300 >
 - ➡️[Projects](https://elenazaharia1.github.io/quiz-game/)
+
+<img src="./img/photo1.jpg" width=500  >
+<img src="./img/photo2.jpg" width=500  >
 
 ## 🙄Developers TODOs😏
 
@@ -23,3 +24,4 @@
 - [x] it gets stuck at question 16
 - [x] add pulse for active player
 - [x] hidden panels before the game start
+- [x] add fetch in request.js
