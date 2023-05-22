@@ -13,15 +13,6 @@
 <img src="./img/photo1.jpg" width=500  >
 <img src="./img/photo2.jpg" width=500  >
 
-## 🙄Developers TODOs😏
+## 🙄About😏
 
-- [x] make it work on phone resolution(layout)
-- [x] active player
-- [x] the background to the answer
-- [x] change name player 1/ player 2 and text is not visible
-- [x] question (remove questions if is correct)
-- [] game logic(what the game doing/ how to play)
-- [x] it gets stuck at question 16
-- [x] add pulse for active player
-- [x] hidden panels before the game start
-- [x] add fetch in request.js
+- [x] This is a 2 player quiz game that allows you to enjoy time with a friend ^^
